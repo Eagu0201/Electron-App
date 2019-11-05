@@ -1,0 +1,39 @@
+
+data =
+{
+    goals:
+    [
+    ],
+
+    users:
+    [
+    ],
+
+    sources:
+    [
+    ],
+
+    concepts:
+    [
+    ],
+
+    indicators:
+    [
+    ],
+
+    "concept-gen":
+    [
+    ],
+
+    "indicator-gen":
+    [
+    ],
+
+    visualization:
+    [
+    ],
+
+    environment:
+    [
+    ]
+}
