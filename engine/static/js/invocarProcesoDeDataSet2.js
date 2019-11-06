@@ -42,18 +42,17 @@ async function processDataset(){
         summon_autoML.on('message', function (message) {
             counter ++;
             console.log(message);
-            console.log(counter);
+            // console.log(counter);
             
-            
-            if ((counter == 3) || (counter == 9) || (counter == 15) || (counter == 21) || (counter == 27) || (counter == 33) || (counter == 39))
+            if (message.includes('score:'))
             score_helper = message.replace(/\D/g,'');
-            if ((counter == 5) || (counter == 11) || (counter == 17) || (counter == 23) || (counter == 29) || (counter == 35)){
+            if (message.includes('display_name:')){
                 var subString = message.substring(
                 message.lastIndexOf(":") + 2
                 );
                 automl_result = automl_result + subString + `: "` + score_helper + `", `;
             }
-            if (counter == 41){
+            if ((counter >= 43) && message.includes('display_name:')){
                 var subString = message.substring(
                 message.lastIndexOf(":") + 2
                 );

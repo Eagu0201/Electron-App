@@ -3,6 +3,7 @@ const path = require('path')
 const url = require('url')
 const fs = require('fs')
 
+
 function createWindow () {
     window = new BrowserWindow({width: 1400, height: 1000, "webPreferences":{
       "webSecurity":false
@@ -15,7 +16,6 @@ function createWindow () {
   });  	
     
 }
-
 
 
 app.on('ready', createWindow)

@@ -1,10 +1,22 @@
-import sys, json, csv, shutil, os
+import sys, json, csv, shutil, os, openpyxl
 from google.cloud import automl_v1beta1 as automl
 from google.cloud.automl_v1beta1.proto import service_pb2
 from google.oauth2 import service_account
 from flask import Flask
+from openpyxl import Workbook
+from openpyxl import load_workbook
 
 datos = sys.argv[1]
+
+print(datos)
+
+wb = load_workbook(filename = './excelOutputs/output-test.xlsx')
+print(wb.sheetnames)
+ws = wb['Unidades de estimacion']
+
+ws['C5'].value = datos
+
+wb.save('./excelOutputs/output-test.xlsx') 
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='./stunning-hue-255412-48f860da88af.json'
 
