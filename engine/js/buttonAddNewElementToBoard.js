@@ -1,3 +1,5 @@
+var counter = 0;
+
 function agregarElemento(type, newGoal) {
 
     const fs = require('fs')
@@ -16,9 +18,11 @@ function agregarElemento(type, newGoal) {
 
         function add() {
 
+            counter++;
+
             var content = '';
 
-            content += '<li><a><p>' + newGoal + '</p></a></li>\n';
+            content += '<li onclick="createPost(' + type + ', '+ counter +')><a><p>' + newGoal + '</p></a></li>\n';
 
             $('.grid-' + type + ' > ul').append(content);
         }

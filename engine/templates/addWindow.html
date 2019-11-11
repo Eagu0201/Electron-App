@@ -6,12 +6,11 @@
 <body>
     <form>
         <div>
-            <label>Enter Item</label>
-            <input type="text" id="requerimiento">
-            <input type="text" id="descripcion">
-            <input type="text" id="tengo">
+            <label>Introduce los datos del requerimiento:</label>
+            <input type="text" id="requerimiento" placeholder="Nombre del requerimiento">
+            <input type="text" id="descripcion" placeholder="Descripcion del requerimiento">
 
-            <label>complejidad</label>
+            <label>Complejidad</label>
             <select id='complejidad'>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -20,13 +19,34 @@
                 <option value="15">15</option>
             </select>
 
-            <label>criticidad</label>
+            <label>Criticidad</label>
             <select id='criticidad'>
-                <option value="necesario">necesario</option>
-                <option value="deseable">deseable</option>
-                <option value="critico">critico</option>
+                <option value="necesario">Necesario</option>
+                <option value="deseable">Deseable</option>
+                <option value="critico">Crítico</option>
             </select>
         </div>
+        <button type="submit">Add requerimiento</button>
     </form>
+
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', submitForm);
+
+        function submitForm(e){
+            e.preventDefault();
+            var reqName = document.querySelector('#requerimiento').value;
+            var reqDesc = document.querySelector('#descripcion').value;
+            var reqComplex = document.querySelector('#complejidad').value;
+            var reqCrit = document.querySelector('#criticidad').value;
+            var requirement = '{\n"nombre" : "' + reqName + '",\n"descripcion" : "' 
+            + reqDesc + '",\n"complejidad" : "' + reqComplex + '",\n"criticidad" : "'
+            + reqCrit + '"\n}';
+            ipcRenderer.send('addPost', requirement);
+        }
+    </script>
 </body>
 </html>

@@ -27,14 +27,8 @@
     rel="stylesheet">
 
   <!-- Main CSS-->
-  <link rel="stylesheet" type="text/css" href="./engine/static/styles/main.css" media="all">
-
-  <script>
-    var pyshell = require('python-shell');
-    pyshell.run('./engine/hello.py', { args: ['4'] }, function (err, results) {
-      if (err) console.log(err);
-    });  	
-  </script>
+  <link rel="stylesheet" type="text/css" href="./engine/templates/styles/main.css" media="all">
+  
 
 </head>
 
@@ -42,13 +36,12 @@
   <div class="page-wrapper bg-dark p-t-100 p-b-50">
     <div class="wrapper wrapper--w900">
       <div class="card card-6">
-        <img src="./engine/static/img_sources/logotipo-zenta-full.svg" class="center">
+        <img src="./engine/img_sources/logotipo-zenta-full.svg" class="center">
         <h2 class="title" style="font-size:40px">SISTEMA DE ESTIMACION DE COSTO Y TIEMPO PARA PROYECTOS DE SOFTWARE</h2>
         <!-- <div class="card-footer"> -->
-        <form action="http://127.0.0.1:5000/">
           <button class="btn btn--radius-2 btn--blue-2"
-            style="margin-left: auto; margin-right: auto; display: block; width: 50%;">Ir al Databoard</button>
-        </form>
+            style="margin-left: auto; margin-right: auto; display: block; width: 50%;"
+            onclick="goToDataboard()">Ir al Databoard</button>
         <!-- </div> -->
       </div>
 
@@ -58,6 +51,14 @@
     </div>
   </div>
 
+  <script>
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+
+    function goToDataboard(e){
+      ipcRenderer.send('goToDataboard');
+    }
+</script>
 
 </body>
 
