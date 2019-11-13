@@ -20,8 +20,11 @@ function createBoardWindow () {
     "webPreferences":{
     "webSecurity":false
   }})
-  boardWindow.loadFile('./engine/templates/hello2.html')
-  
+  boardWindow.loadFile('./engine/templates/hello2.html');
+
+  boardWindow.on('close', function(){
+    app.quit()
+});
 }
 
 function inyectarDatosEdit(type, postNum){

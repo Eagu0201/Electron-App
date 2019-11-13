@@ -12,7 +12,7 @@ print(datos)
 
 wb = load_workbook(filename = './excelOutputs/output-test.xlsx')
 print(wb.sheetnames)
-ws = wb['Unidades de estimacion']
+ws = wb['UE']
 
 ws['C5'].value = datos
 

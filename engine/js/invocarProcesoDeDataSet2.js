@@ -7,7 +7,7 @@ async function readJson(){
     const fs = require('fs')
 
     try {
-        var rawJson = fs.readFileSync('./engine/static/data/boardJson.json', 'utf8')
+        var rawJson = fs.readFileSync('./engine/data/boardJson.json', 'utf8')
         console.log(rawJson)
     } catch (err) {
         console.error(err)
