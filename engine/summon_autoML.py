@@ -10,15 +10,15 @@ datos = sys.argv[1]
 
 print(datos)
 
-wb = load_workbook(filename = './excelOutputs/output-test.xlsx')
+wb = load_workbook(filename = '../excelOutputs/output-test.xlsx')
 print(wb.sheetnames)
-ws = wb['Unidades de estimacion']
+ws = wb['UE']
 
 ws['C5'].value = datos
 
-wb.save('./excelOutputs/output-test.xlsx') 
+wb.save('../excelOutputs/output-test.xlsx') 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='./stunning-hue-255412-48f860da88af.json'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='../stunning-hue-255412-12337a72db24.json'
 
 def get_prediction(content, project_id, model_id):
   compute_region = 'us-central1'
@@ -31,8 +31,6 @@ def get_prediction(content, project_id, model_id):
   request = prediction_client.predict(name, payload, params)
   return request  # waits till request is returned
 
-
-# Desarrollo de una aplicacion en Xamarin para gestion de ingredientes en un restaurant
-output = (get_prediction(datos, "stunning-hue-255412",  "TCN4845958667344202348"))
+output = (get_prediction(datos, "stunning-hue-255412",  "TCN6348187867260561980"))
 print(output)
 sys.stdout.flush()

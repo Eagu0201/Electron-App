@@ -5,7 +5,7 @@ function agregarElemento(type, newGoal) {
     const fs = require('fs')
 
     try {
-        var rawJson = fs.readFileSync('./engine/static/data/boardJson.json', 'utf8')
+        var rawJson = fs.readFileSync('./engine/data/boardJson.json', 'utf8')
         console.log(rawJson)
     } catch (err) {
         console.error(err)
@@ -75,7 +75,7 @@ function agregarElemento(type, newGoal) {
 
         console.log(boardJson);
 
-        fs.writeFileSync('./engine/static/data/boardJson.json', JSON.stringify(boardJson), (err) => {
+        fs.writeFileSync('./engine/data/boardJson.json', JSON.stringify(boardJson), (err) => {
             if (err) console.log(err);
             console.log("Successfully Written to File.");
         });

@@ -10,11 +10,6 @@ goalWords = word_tokenize(str(datos["goals"]))
 userWords = word_tokenize(str(datos["users"]))
 sourceWords = word_tokenize(str(datos["sources"]))
 conceptWords = word_tokenize(str(datos["concepts"]))
-indicatorWords = word_tokenize(str(datos["indicators"]))
-conceptGenWords = word_tokenize(str(datos["conceptGen"]))
-indicatorGenWords = word_tokenize(str(datos["indicatorGen"]))
-visualizationWords = word_tokenize(str(datos["visualization"]))
-environmentWords = word_tokenize(str(datos["environment"]))
 
 filteredGoals = []
 filteredUsers = []

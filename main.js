@@ -20,8 +20,11 @@ function createBoardWindow () {
     "webPreferences":{
     "webSecurity":false
   }})
-  boardWindow.loadFile('./engine/templates/hello2.html')
-  
+  boardWindow.loadFile('./engine/templates/hello2.html');
+
+  boardWindow.on('close', function(){
+    app.quit()
+});
 }
 
 function inyectarDatosEdit(type, postNum){
@@ -41,7 +44,6 @@ ipcMain.on('createPost', function(){
 });
 
 ipcMain.on('addPost', function(e, requirement){
-  console.log(requirement);
   boardWindow.webContents.send('addPost', requirement);
   addWindow.close();
 });
