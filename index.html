@@ -54,6 +54,20 @@
   <script>
     const electron = require('electron');
     const {ipcRenderer} = electron;
+    const fs = require('fs');
+
+
+    fs.writeFileSync('./engine/data/requerimientos.json', `{
+      "requerimientos" : [
+          {
+              "nombre" : "",
+              "descripcion" : "",
+              "complejidad" : "",
+              "criticidad" : ""
+          }`, (err) => {
+                if (err) console.log(err);
+                console.log("Successfully Written to File.");
+    });
 
     function goToDataboard(e){
       ipcRenderer.send('goToDataboard');

@@ -44,7 +44,6 @@ ipcMain.on('createPost', function(){
 });
 
 ipcMain.on('addPost', function(e, requirement){
-  console.log(requirement);
   boardWindow.webContents.send('addPost', requirement);
   addWindow.close();
 });

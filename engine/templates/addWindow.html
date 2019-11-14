@@ -42,9 +42,17 @@
             var reqDesc = document.querySelector('#descripcion').value;
             var reqComplex = document.querySelector('#complejidad').value;
             var reqCrit = document.querySelector('#criticidad').value;
-            var requirement = '{\n"nombre" : "' + reqName + '",\n"descripcion" : "' 
+            var requirement = ',\n{\n"nombre" : "' + reqName + '",\n"descripcion" : "' 
             + reqDesc + '",\n"complejidad" : "' + reqComplex + '",\n"criticidad" : "'
             + reqCrit + '"\n}';
+            
+            const fs = require('fs');
+
+            fs.appendFileSync('./engine/data/requerimientos.json', requirement, (err) => {
+                        if (err) console.log(err);
+                        console.log("Successfully Written to File.");
+                    });
+
             ipcRenderer.send('addPost', requirement);
         }
     </script>
